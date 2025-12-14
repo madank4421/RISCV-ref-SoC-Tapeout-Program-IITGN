@@ -113,7 +113,7 @@ vcs -full64 -sverilog -timescale=1ns/1ps \
     -o simv
 ```
 
-Some compilation and simulation errors may occur during this stage. The specific issues encountered and their resolutions are documented separately.
+Some compilation and simulation errors may occur during this stage. The specific issues encountered and their resolutions are documented [HERE](#errors-during-gate-level-simulation).
 
 ![Alt text](images/14.png)
 
