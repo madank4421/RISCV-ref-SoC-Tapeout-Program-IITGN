@@ -87,3 +87,22 @@ Output directory reference:
 
 Final synthesized netlist:
 ![Alt text](images/netlist.png)
+
+# Gate-level SImulation
+
+The gate level simulation is performed using iverilog and gtkwave. for that, go to gls/ directory.
+
+```
+make
+vvp hkspi.vvp
+```
+
+![Alt text](images/gls_terminal.png)
+
+Now view the waveform using gtkwave
+
+```
+gtkwave hkspi.vcd hkspi_tb.v
+```
+
+![Alt text](images/gtk_gls.png)
