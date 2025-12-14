@@ -99,6 +99,8 @@ vvp hkspi.vvp
 
 ![Alt text](images/gls_terminal.png)
 
+we can see the register values matching the expected output. Thus our GLS is passing the test.
+
 Now view the waveform using gtkwave
 
 ```
@@ -106,3 +108,5 @@ gtkwave hkspi.vcd hkspi_tb.v
 ```
 
 ![Alt text](images/gtk_gls.png)
+
+The waveform can be viewed in gtkwave as shown above. It passes the verification.
