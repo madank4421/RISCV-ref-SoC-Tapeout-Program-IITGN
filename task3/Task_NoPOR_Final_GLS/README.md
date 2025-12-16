@@ -227,7 +227,7 @@ The synthesized netlist is generated successfully and stored in the synthesis/ou
 
 Area report:
 
-```
+```bash
 Warning: Design 'vsdcaravel' has '4' unresolved references. For more detailed information, use the "link" command. (UID-341)
  
 ****************************************
@@ -266,7 +266,7 @@ Information: This design contains black box (unknown) components. (RPT-8)
 
 Power report:
 
-```
+```bash
 Global Operating Voltage = 1.98 
 Power-specific unit information :
     Voltage Units = 1V
@@ -307,7 +307,7 @@ Total             38.4108 mW        31.6548 mW     1.1350e+06 pW        70.0666 
 
 QOR Report:
 
-```
+```bash
 Information: Building the design 'pc3d01_wrapper'. (HDL-193)
 Error:  Source file for 'pc3d01_wrapper' was not analyzed by this release of the compiler; re-analyze it. (ELAB-343)
 *** Presto compilation terminated with 1 errors. ***
