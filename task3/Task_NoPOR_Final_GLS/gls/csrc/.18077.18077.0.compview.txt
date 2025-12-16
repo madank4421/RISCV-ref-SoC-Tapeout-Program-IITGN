@@ -1,0 +1,9 @@
+{"vcs1":{"timestamp_begin":1765869670.979815064, "rt":4.64, "ut":2.97, "st":0.23}}
+{"vcselab":{"timestamp_begin":1765869675.656678273, "rt":2.05, "ut":0.68, "st":0.05}}
+{"link":{"timestamp_begin":1765869677.732999840, "rt":0.23, "ut":0.14, "st":0.08}}
+{"SNPS_VCS_INTERNAL_ROOT_START_TIME": 1765869670.783517302}
+{"VCS_COMP_START_TIME": 1765869670.783517302}
+{"VCS_COMP_END_TIME": 1765869678.000675129}
+{"VCS_USER_OPTIONS": "-full64 -sverilog -timescale=1ns/1ps -debug_access+all +define+FUNCTIONAL+SIM+GL +notimingchecks hkspi_tb.v +incdir+../synthesis/output +incdir+/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/iopad/cio250/4M1L/verilog/tsl18cio250/zero +incdir+/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/stdcell/fs120/4M1IL/verilog/vcs_sim_model -o simv"}
+{"vcs1": {"peak_mem": 437416}}
+{"vcselab": {"peak_mem": 258532}}

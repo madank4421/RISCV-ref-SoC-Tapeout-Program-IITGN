@@ -1,0 +1,170 @@
+15       
+0 tsl18fs120_scl.v
+0 /home/Synopsys/tools/vcs/U-2023.03/etc/systemverilog/tsl18fs120_scl.v
+0 ../synthesis/output/tsl18fs120_scl.v
+0 /home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/iopad/cio250/4M1L/verilog/tsl18cio250/zero/tsl18fs120_scl.v
+0 pc3d01.v
+0 /home/Synopsys/tools/vcs/U-2023.03/etc/systemverilog/pc3d01.v
+0 ../synthesis/output/pc3d01.v
+0 pc3b03ed.v
+0 /home/Synopsys/tools/vcs/U-2023.03/etc/systemverilog/pc3b03ed.v
+0 ../synthesis/output/pc3b03ed.v
+0 pt3b02.v
+0 /home/Synopsys/tools/vcs/U-2023.03/etc/systemverilog/pt3b02.v
+0 ../synthesis/output/pt3b02.v
+0 vsdcaravel_synthesis.v
+0 /home/Synopsys/tools/vcs/U-2023.03/etc/systemverilog/vsdcaravel_synthesis.v
+35
++define+FUNCTIONAL+SIM+GL
++incdir+../synthesis/output
++incdir+/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/iopad/cio250/4M1L/verilog/tsl18cio250/zero
++incdir+/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/stdcell/fs120/4M1IL/verilog/vcs_sim_model
++itf+/home/Synopsys/tools/vcs/U-2023.03/linux64/lib/vcsdp_lite.tab
++notimingchecks
++vcsd1
++vpi
+-Mamsrun=
+-Masflags=
+-Mcc=gcc
+-Mcfl= -pipe -fPIC -O -I/home/Synopsys/tools/vcs/U-2023.03/include
+-Mcplusplus=g++
+-Mcrt0=
+-Mcrtn=
+-Mcsrc=
+-Mexternalobj=
+-Mldflags= -rdynamic
+-Mobjects= /home/Synopsys/tools/vcs/U-2023.03/linux64/lib/libvirsim.so /home/Synopsys/tools/vcs/U-2023.03/linux64/lib/liberrorinf.so /home/Synopsys/tools/vcs/U-2023.03/linux64/lib/libsnpsmalloc.so /home/Synopsys/tools/vcs/U-2023.03/linux64/lib/libvfs.so
+-Mout=simv
+-Msaverestoreobj=/home/Synopsys/tools/vcs/U-2023.03/linux64/lib/vcs_save_restore_new.o
+-Msyslibs=-ldl
+-Mvcsaceobjs=
+-Mxcflags= -pipe -fPIC -I/home/Synopsys/tools/vcs/U-2023.03/include
+-Mxllcflags=
+-debug_access+all
+-full64
+-gen_obj
+-o simv
+-picarchive
+-sverilog
+-timescale=1ns/1ps
+/home/Synopsys/tools/vcs/U-2023.03/linux64/bin/vcs1
+simv
+hkspi_tb.v
+88
+XDG_SESSION_ID=986
+XDG_RUNTIME_DIR=/run/user/1002
+XDG_DATA_DIRS=/home/madank/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share
+VMR_MODE_FLAG=64
+VENDOR=unknown
+VCS_PATHMAP_PRELOAD_DONE=1
+VCS_MX_HOME_INTERNAL=1
+VCS_MODE_FLAG=64
+VCS_HOME=/home/Synopsys/tools/vcs/U-2023.03
+VCS_EXEC_DONE=1
+VCS_DEPTH=0
+VCS_ARG_ADDED_FOR_TMP=1
+VCS_ARCH=linux64
+UNAME=/bin/uname
+TOOL_HOME=/home/Synopsys/tools/vcs/U-2023.03/linux64
+SYN_HOME=/home/Synopsys/tools/syn/T-2022.03-SP5
+SYNOPSYS_HOME=/home/Synopsys/tools
+STARRC_HOME=/home/Synopsys/tools/starrc/U-2022.12-SP3
+SSH_TTY=/dev/pts/5
+SSH_CONNECTION=10.0.178.48 57667 10.0.117.155 22
+SSH_CLIENT=10.0.178.48 57667 22
+SNPS_VCS_CLANG_PATH=/home/Synopsys/tools/vcs/U-2023.03/linux64/clang
+SNPS_TEMP=tmp
+SNPS_INTERNAL_VCS_LINUX_OS=linux
+SNPS_FORCE_64BIT=1
+SELINUX_USE_CURRENT_RANGE=
+SELINUX_ROLE_REQUESTED=
+SELINUX_LEVEL_REQUESTED=
+SCRNAME=vcs
+SCRIPT_NAME=vcs
+RSS_USERWARE=/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/pdk/cdns/sclpdk_v3/HOTCODE/mgcware
+RSS_MODEL_LIB=/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/pdk/cdns/sclpdk_v3/HOTCODE/mgclibs
+RFCAD_CDS=/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/pdk/cdns/sclpdk_v3/HOTCODE
+RFCAD_ADS=/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/pdk/cdns/sclpdk_v3/HOTCODE
+REMOTEHOST=10.0.178.48
+RDS_TECH=/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/pdk/cdns/sclpdk_v3/HOTCODE/techs
+RDS_ROOT_DEFAULT=/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/pdk/cdns/sclpdk_v3/HOTCODE
+RDS_ROOT=/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/pdk/cdns/sclpdk_v3/HOTCODE
+RDS_PT=lnx86
+RDS_MGCSYMB=/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/pdk/cdns/sclpdk_v3/HOTCODE/mgcsymb
+RDS_MGCLIB=/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/pdk/cdns/sclpdk_v3/HOTCODE/mgclibs
+RDS_LIC=/tools/licenses/license_files
+RDS_EXA=/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/pdk/cdns/sclpdk_v3/HOTCODE/examples
+RDS_ETC=/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/pdk/cdns/sclpdk_v3/HOTCODE/amslibs/cds_default/etc
+RDS_DOC=/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/pdk/cdns/sclpdk_v3/HOTCODE/doc
+RDS_CUSTOM=/rds/prod/custom
+RDS_CMOS=/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/pdk/cdns/sclpdk_v3/HOTCODE/cmoslibs
+RDS_CKM_QUEUE=checkmate
+RDS_CDS_TECH=b25m
+RDS_CDS_MOS_MODEL=bsim3v3
+RDS_CDS_MODEL_VER_PACKAGE=v1.0
+RDS_CDS_LIB_VERS=/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/pdk/cdns/sclpdk_v3/HOTCODE/amslibs/cds_default/etc/system.lib
+RDS_CDS_LAYOUT_TOOL=Virtuoso
+RDS_CDS_INIT_FILES=/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/pdk/cdns/sclpdk_v3/HOTCODE/amslibs/cds_default/etc
+RDS_CDS_BJT_MODEL=gp
+RDS_CDSWARE=/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/pdk/cdns/sclpdk_v3/HOTCODE/amslibs/cds_default/cdsware
+RDS_CDSLIBS=/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/pdk/cdns/sclpdk_v3/HOTCODE/amslibs/cds_default/cdslibs
+RDS_CAL_QUEUE=calibre
+RDS_BIN=/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/pdk/cdns/sclpdk_v3/HOTCODE/bin
+RDS_AMS_CDSVER=cds_default
+RDS_ADS_TECH=b25m
+RDS_ADS_MODEL_VER=v1.0
+RDS_ADSLIBS=/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/pdk/cdns/sclpdk_v3/HOTCODE/adslibs
+QRC_ENABLE_EXTRACTION=
+PROJ_ROOT=/home/Synopsys/
+PRIME_HOME=/home/Synopsys/tools/prime/U-2022.12-SP3
+PERL5=/bin/perl
+OVA_UUM=0
+OSTYPE=linux
+OA_UNSUPPORTED_PLAT=linux_rhel50_gcc44x
+MGC_CALIBRE_CUSTOMIZATION_FILE=/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/pdk/cdns/sclpdk_v3/HOTCODE/techs/generic/calibre/calibre_ts_drc.custom
+LESSOPEN=||/usr/bin/lesspipe.sh %s
+LC_ALL=C
+KIT_DIR=/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/pdk/cdns/sclpdk_v3
+ICC2_HOME=/home/Synopsys/tools/icc2/U-2022.12-SP3
+HOSTTYPE=x86_64-linux
+HISTCONTROL=ignoredups
+GROUP=madank
+FLEXLM_DIAGNOSTICS=3
+CWB_GL1_YES=1
+CLS_CDSD_COMPATIBILITY_LOCKING=No
+CDS_TECH=b25m
+CDS_SEARCHDIR=/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/pdk/cdns/sclpdk_v3/HOTCODE/amslibs/cds_default/cdsware
+CDS_Netlisting_Mode=Analog
+CDS_LIB_VERS=/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/pdk/cdns/sclpdk_v3/HOTCODE/amslibs/cds_default/etc/system.lib
+CDS_AUTO_64BIT=ALL
+ASIC_LIB=/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/pdk/cdns/sclpdk_v3/HOTCODE/asic_libs
+ALTOS_QUEUE=1
+0
+0
+19
+1765808527 /home/madank/work/vsdRiscvScl180/gls/tbuart.v
+1765808527 /home/madank/work/vsdRiscvScl180/gls/spiflash.v
+1765869842 ../synthesis/output/vsdcaravel_synthesis.v
+1765808527 /home/madank/work/vsdRiscvScl180/rtl/RAM256.v
+1765808527 /home/madank/work/vsdRiscvScl180/gl/RAM128.v
+1765385393 /home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/iopad/cio250/4M1L/verilog/tsl18cio250/zero/pt3b02.v
+1765808527 /home/madank/work/vsdRiscvScl180/rtl/scl180_wrapper/pt3b02_wrapper.v
+1765385396 /home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/iopad/cio250/6M1L/verilog/tsl18cio250/zero/pc3d21.v
+1765385393 /home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/iopad/cio250/4M1L/verilog/tsl18cio250/zero/pc3b03ed.v
+1765808527 /home/madank/work/vsdRiscvScl180/rtl/scl180_wrapper/pc3b03ed_wrapper.v
+1765385393 /home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/iopad/cio250/4M1L/verilog/tsl18cio250/zero/pc3d01.v
+1765808527 /home/madank/work/vsdRiscvScl180/rtl/scl180_wrapper/pc3d01_wrapper.v
+1765808527 /home/madank/work/vsdRiscvScl180/rtl/constant_block.v
+1765808527 /home/madank/work/vsdRiscvScl180/rtl/dummy_scl180_conb_1.v
+1765385686 /home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/stdcell/fs120/4M1IL/verilog/vcs_sim_model/tsl18fs120_scl.v
+1765863337 /home/madank/work/vsdRiscvScl180/gl/caravel_netlists.v
+1765808527 /home/madank/work/vsdRiscvScl180/gl/defines.v
+1765876862 hkspi_tb.v
+1677384340 /home/Synopsys/tools/vcs/U-2023.03/linux64/lib/vcsdp_lite.tab
+4
+1677385575 /home/Synopsys/tools/vcs/U-2023.03/linux64/lib/libvirsim.so
+1677385060 /home/Synopsys/tools/vcs/U-2023.03/linux64/lib/liberrorinf.so
+1677385018 /home/Synopsys/tools/vcs/U-2023.03/linux64/lib/libsnpsmalloc.so
+1677385055 /home/Synopsys/tools/vcs/U-2023.03/linux64/lib/libvfs.so
+1765877085 simv.daidir
+-1 partitionlib
