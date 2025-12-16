@@ -192,7 +192,7 @@ In SKY130:
 
 
 
-## Is the reset pin Available immediately after VDD?
+## 4. Is the reset pin Available immediately after VDD?
 
 
 Yes. In the VSDCaravel design targeting SCL-180, the reset pin is available immediately after VDD comes up.
