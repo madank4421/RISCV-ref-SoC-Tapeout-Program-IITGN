@@ -511,3 +511,11 @@ Now when we run the simulation again using VCS and view the waveform in gtkwave:
 <18>
 
 The peripheral output signals go to their default vazlues when resetb is low. For example the hkspi output SDO goes low when reset is asserted.
+
+
+### Check if external reset works
+
+|             Before: No reset assertion in tb           |      After: Reset is asserted in tb                 |
+| :------------------------------------: | :------------------------------------------: |
+| <img src="images/14.png" width="400"/> | <img src="images/18.png" width="400"/> |
+
