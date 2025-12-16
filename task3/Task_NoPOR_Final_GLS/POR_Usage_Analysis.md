@@ -190,5 +190,5 @@ Status: REPLACEABLE – Registers can be initialized by xres.
 | por_l      | caravel_core, memories, user_project_wrapper  | REPLACEABLE       | Core and memories initialized via xres         |
 | rstb_h     | chip_io, housekeeping_spi, housekeeping_block | REPLACEABLE       | LA, GPIO, SPI FSM reset by external reset      |
 
-Conclusion: All POR signals are either dead, unused, or replaceable with a single external reset (xres), validating POR removal in SCL-180.
+Conclusion: All POR signals are either dead, unused, or replaceable with a single external reset, validating POR removal in SCL-180.
 
