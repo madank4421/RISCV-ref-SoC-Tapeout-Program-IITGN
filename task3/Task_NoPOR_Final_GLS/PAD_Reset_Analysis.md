@@ -1,6 +1,6 @@
 # PAD Library Study 
 
-## Does the reset pad require Internal enable?
+## 1. Does the reset pad require Internal enable?
 
 No, the reset pad does not require an internal enable.
 
@@ -64,7 +64,7 @@ This is why the SCL-180 reset pad can operate **without internal enable**, unlik
 
 
 
-## Does the SCL-180 reset pad require POR-driven gating?
+## 2. Does the SCL-180 reset pad require POR-driven gating?
 
 **Answer:** **No, it does not require POR-driven gating.**
 
@@ -128,3 +128,65 @@ Conclusion from comparison:
 * **Internal enable:** Not required.
 * **POR-driven gating:** Not required.
 * **Evidence:** SCL-180 `pc3d21` RTL shows a single buffer with no enable or POR control, unlike SKY130 which explicitly uses `ENABLE_H(porb_h)`.
+
+
+## 3. Is the reset pin Asynchronous?
+
+Yes. In the VSDCaravel / SCL-180 design, the reset pin is asynchronous.
+
+### Observation from the RTL
+
+The reset pad in your design is:
+
+```verilog
+pc3d21 resetb_pad (
+    .PAD(resetb),
+    .CIN(resetb_core_h)
+);
+```
+
+**Key points:**
+
+* The `CIN` (core reset input) **follows the PAD directly** through a buffer.
+* There is **no clock signal anywhere in the reset path**.
+* No synchronizer flip-flops or logic exist in this path.
+
+---
+
+### What makes a reset asynchronous
+
+A reset is **asynchronous** if it can change the state of the system immediately **without waiting for a clock edge**.
+
+* In your design, `resetb_core_h` is driven **directly by `resetb` PAD**.
+* Therefore, the core sees the reset immediately whenever the PAD changes, independent of the clock.
+
+This is exactly the definition of **asynchronous reset**.
+
+---
+
+### Comparison with synchronous reset
+
+* **Synchronous reset**: Reset signal is sampled by a flip-flop **at a clock edge**, e.g., `always @(posedge clk) if (rst) ...`.
+* **Asynchronous reset**: Reset is **applied immediately**, independent of the clock, as in your `pc3d21` buffer connection.
+
+---
+
+### Supporting evidence from SKY130 (optional)
+
+In SKY130:
+
+```verilog
+.XRES_H_N(resetb_core_h),
+.ENABLE_H(porb_h)
+```
+
+* `XRES_H_N` is also **directly driven** from the pad through internal circuitry.
+* If the enable were used, POR could control it, but still, the reset is **applied asynchronously**, independent of the clock.
+
+---
+
+**Conclusion:**
+
+* **VSDCaravel reset pin is asynchronous.**
+* **Justification:** The reset signal passes directly from the pad to the core through a buffer (`pc3d21`), with no clock-dependent logic or synchronizer.
+
