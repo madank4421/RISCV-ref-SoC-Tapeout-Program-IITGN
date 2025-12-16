@@ -227,7 +227,7 @@ The synthesized netlist is generated successfully and stored in the synthesis/ou
 
 Area report:
 
-```bash
+```
 Warning: Design 'vsdcaravel' has '4' unresolved references. For more detailed information, use the "link" command. (UID-341)
  
 ****************************************
@@ -266,7 +266,7 @@ Information: This design contains black box (unknown) components. (RPT-8)
 
 Power report:
 
-```bash
+```
 Global Operating Voltage = 1.98 
 Power-specific unit information :
     Voltage Units = 1V
@@ -307,7 +307,7 @@ Total             38.4108 mW        31.6548 mW     1.1350e+06 pW        70.0666 
 
 QOR Report:
 
-```bash
+```
 Information: Building the design 'pc3d01_wrapper'. (HDL-193)
 Error:  Source file for 'pc3d01_wrapper' was not analyzed by this release of the compiler; re-analyze it. (ELAB-343)
 *** Presto compilation terminated with 1 errors. ***
@@ -453,5 +453,61 @@ Date   : Tue Dec 16 10:52:38 2025
 ```
 
 
+## Gate-level simulation (GLS)
+
+Gate-level simulation is performed using the synthesized netlist to validate post-synthesis functional correctness. VCS is again used for this purpose, and simulation is run from the gls directory.
+
+```
+vcs -full64 -sverilog -timescale=1ns/1ps \
+    -debug_access+all \
+    +define+FUNCTIONAL+SIM+GL \
+    +notimingchecks \
+    hkspi_tb.v \
+    +incdir+../synthesis/output \
+    +incdir+/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/iopad/cio250/4M1L/verilog/tsl18cio250/zero \
+    +incdir+/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/stdcell/fs120/4M1IL/verilog/vcs_sim_model \
+    -o simv
+```
+
+Some compilation and simulation errors may occur during this stage. The specific issues encountered and their resolutions are documented [HERE](#errors-during-gate-level-simulation).
 
 
+The simulation is executed and a VCD file is generated.
+
+```
+./simv -no_save +define+DUMP_VCD=1 | tee sim_log.txt
+```
+
+The output initially fails, producing unknown values. This behavior is expected because memory modules were blackboxed during synthesis, resulting in undefined behavior during simulation.
+
+<15>
+
+To validate correct functionality, the blackbox definitions are removed and the original RTL implementations of these modules are included during gate-level simulation. The simulation is then recompiled and executed.
+
+<16>
+
+With the functional RTL of the memory modules included, the gate-level simulation produces correct results that match the functional simulation.
+
+![Alt text](images/12.png)
+
+Waveforms are again inspected using GTKWave.
+
+```
+gtkwave hkspi.vcd hkspi_tb.v
+```
+
+![Alt text](images/13.png)
+
+![Alt text](images/14.png)
+
+As we can see, the signals are propagating without any 'x'. 
+
+Let us assert the reset and check if the values of registers and peripherals go back to default state. For that, i have added another logic in the testbench where the reset is asserted again and deasserted using a fork join_none block.
+
+<17>
+
+Now when we run the simulation again using VCS and view the waveform in gtkwave:
+
+<18>
+
+The peripheral output signals go to their default vazlues when resetb is low. For example the hkspi output SDO goes low when reset is asserted.
