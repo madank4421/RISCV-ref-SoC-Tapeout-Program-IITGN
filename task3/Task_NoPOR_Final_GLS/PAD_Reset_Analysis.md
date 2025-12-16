@@ -190,3 +190,46 @@ In SKY130:
 * **VSDCaravel reset pin is asynchronous.**
 * **Justification:** The reset signal passes directly from the pad to the core through a buffer (`pc3d21`), with no clock-dependent logic or synchronizer.
 
+
+
+## Is the reset pin Available immediately after VDD?
+
+
+Yes. In the VSDCaravel design targeting SCL-180, the reset pin is available immediately after VDD comes up.
+
+The reset pin in the design is implemented using simple SCL-180 input pad cells such as `pc3d21`, `pc3d01`, or equivalent, which are nothing more than a direct buffer from the external PAD pin to the internal core signal (`CIN`). There are no enable pins, no power-on-reset inputs, no gating logic, no latch, and no clock dependency inside the pad model.
+
+As soon as VDD and GND are valid, the buffer becomes electrically active and propagates the pad value to the core. There is no dependency on any internal control signal such as `porb_h`, `por_l`, or any other sequencing signal. Therefore, the reset signal is visible to the digital core immediately after power is applied.
+
+From the RTL perspective, this means:
+
+* The reset pin does not wait for any internal POR to release it.
+* The pad does not require a separate enable to become functional.
+* The reset signal does not depend on clock availability.
+
+This is fundamentally different from a gated or POR-controlled reset pad.
+
+Contrast with SKY130:
+
+In the SKY130 flow, the reset pad (`sky130_fd_io__top_xres4v2`) includes explicit POR-related and enable-related controls:
+
+```verilog
+.ENABLE_H(porb_h),      // Power-on-reset
+.DISABLE_PULLUP_H(...)
+.INP_SEL_H(...)
+.FILT_IN_H(...)
+```
+
+In SKY130, the reset pad input path is explicitly gated by `porb_h`. Until the internal POR deasserts, the reset pad is not guaranteed to propagate correctly to the core. This makes POR a functional requirement in that technology.
+
+In SCL-180, none of these control or gating signals exist in the reset pad instantiation. The reset pad is a passive input buffer that becomes operational as soon as the power rails are valid.
+
+Final conclusion:
+
+In the VSDCaravel SCL-180 implementation, the reset pin is available immediately after VDD because:
+
+* The reset pad is a simple buffer-based input cell.
+* There is no POR-driven gating or internal enable.
+* The reset signal propagates directly from the pad to the core without waiting for any internal sequencing.
+
+This makes an external reset-only strategy architecturally safe in SCL-180 and removes the necessity for an on-chip POR.
