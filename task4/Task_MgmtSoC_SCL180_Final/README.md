@@ -301,3 +301,37 @@ gtkwave hkspi.vcd hkspi_tb.v
 
 ![Alt text](images/task4_14.png)
 
+
+
+
+
+
+GPIO
+
+The errors while compling RTL is cleared. But the RTL simulation is faILing.
+
+![Alt text](images/task4_15.png)
+
+
+
+ MPRJ_CONTROL
+
+The errors while compling RTL is cleared. But the RTL simulation is faILing.
+
+![Alt text](images/task4_16.png)
+
+
+
+STorage
+
+The errors while compling RTL is cleared. But the RTL simulation is faILing.
+
+![Alt text](images/task4_17.png)
+
+
+
+IRQ
+
+The errors while compling RTL is cleared. But the RTL simulation is faILing.
+
+![Alt text](images/task4_18.png)
