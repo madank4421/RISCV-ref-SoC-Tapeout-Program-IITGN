@@ -112,6 +112,12 @@ Area, power, timing, and QoR reports are generated. The unresolved references re
 
 The absence of POR logic in the synthesized netlist further validates that reset control is entirely external.
 
+Run the tcl script to execute the simulation.
+
+```
+dc_shell -f ../synth.tcl
+```
+
 ## Gate-Level Simulation (GLS)
 
 Gate-level simulation is performed using the synthesized netlist to verify post-synthesis functional equivalence. VCS is used again with timing checks disabled for functional validation.
