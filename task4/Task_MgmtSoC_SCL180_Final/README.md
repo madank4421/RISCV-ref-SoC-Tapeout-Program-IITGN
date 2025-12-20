@@ -12,10 +12,10 @@ The validation flow proves functional equivalence across multiple abstraction le
 
 The following tools and libraries are required to reproduce this flow:
 
-• Synopsys VCS for RTL and gate-level simulation
-• Synopsys Design Compiler for synthesis
-• SCL-180 standard cell libraries
-• SCL-180 IO pad libraries and Verilog models
+- Synopsys VCS for RTL and gate-level simulation
+- Synopsys Design Compiler for synthesis
+- SCL-180 standard cell libraries
+- SCL-180 IO pad libraries and Verilog models
 
 ---
 
