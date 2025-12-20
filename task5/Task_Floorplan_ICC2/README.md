@@ -1,24 +1,39 @@
 # Task 5: SoC Floorplanning Using ICC2 (Floorplan Only)
 
-Objective
-The objective of this task is to create a correct SoC floorplan using ICC2, meeting exact die size and IO pad placement targets, and to develop hands-on familiarity with ICC2 floorplanning commands and concepts
+## Objective
+
+The objective of this task is to create a clean and correct SoC floorplan using Synopsys ICC2, strictly meeting predefined die size, core dimensions, and IO boundary constraints. This task focuses only on floorplanning, without placement, CTS, or routing, and aims to build hands-on familiarity with ICC2 concepts such as design libraries, reference NDMs, die/core definition, placement blockages, DEF generation, and GUI inspection.
+
+This stage is critical because a correct floorplan forms the foundation for all downstream physical design stages. Any mismatch in die size, core offset, or IO keep-out regions can cause failures later during placement or routing.
+
+---
 
 ## Toolchain Requirements
 
 The following tools and libraries are required to reproduce this flow:
 
-- Synopsys VCS for RTL and gate-level simulation
-- Synopsys ICC2 (Integrated Circuit Compiler II) for synthesis
-- SCL-180 standard cell libraries
-- SCL-180 IO pad libraries and Verilog models
+* Synopsys ICC2 (Integrated Circuit Compiler II)
 
-Floorplan
-(brief description)
+---
 
-tHE FLOOR PLAN IS DONE USING THE FOLLOWING SCRIPT FILE:
+## Floorplan Overview
+
+The floorplan is created using a TCL-based batch flow in ICC2. The synthesized netlist from DC is used as the input. A new ICC2 design library is created with an SCL-180 reference NDM. The die area and core area are explicitly defined, and hard placement blockages are added around the periphery to reserve space for IO pads.
+
+The output of this task includes:
+
+* An initialized ICC2 design library
+* A saved floorplan block
+* A DEF file describing die, core, and blockages
+* A textual report capturing key floorplan parameters
+
+---
+
+## ICC2 Floorplanning Script
+
+The floorplan is generated using the following TCL script file:
 
 ```tcl
-
 set DESIGN_NAME      vsdcaravel
 set DESIGN_LIBRARY   vsdcaravel_fp_lib
 
@@ -39,7 +54,6 @@ initialize_floorplan \
   -control_type die \
   -boundary {{0 0} {3588 5188}} \
   -core_offset {200 200 200 200}
-
 
 create_placement_blockage \
   -name IO_BOTTOM \
@@ -62,11 +76,9 @@ create_placement_blockage \
   -boundary {{3488 100} {3588 5088}}
 
 save_block -force -label floorplan
-
 save_lib
 
 file mkdir ../outputs
-
 write_def ../outputs/vsdcaravel_floorplan.def
 
 file mkdir ../reports
@@ -83,28 +95,52 @@ redirect -file ../reports/floorplan_report.txt {
 puts "INFO: Floorplan created, saved, and DEF written successfully."
 ```
 
-Then run the icc2 shell with the script file
+---
+
+## Running the Floorplanning Flow
+
+The ICC2 shell is invoked using the floorplanning script:
 
 ```
 icc2_shell -f floorplan.tcl
 ```
 
-<task5_3>
+After successful execution, the design library is created, the floorplan is initialized, and the DEF file is generated.
 
-The gui can be viewed with the following command.
+![Alt text](images/task5_3.png)
+
+---
+
+## GUI Inspection
+
+The ICC2 graphical interface can be launched using:
 
 ```
 start_gui
 ```
 
-tHe Dimensions of the die and core can be checked under "floorplan initialization" as shown:
+Within the GUI, the floorplan initialization section shows the defined die and core dimensions. This confirms that the floorplan geometry matches the intended specification.
 
-<task5_1>
+![Alt text](images/task5_1.png)
 
-Also the pins can be placed (without any order) using the following command in the console of gui:
+The die area is defined as 3588 × 5188 microns, and the core area is offset uniformly by 200 microns on all sides, ensuring sufficient spacing between core logic and IO pads.
+
+---
+
+## Pin Placement
+
+IO pins can be placed automatically for visualization and early validation purposes. This is done directly from the ICC2 GUI console:
 
 ```
 place_pins -self
 ```
 
-<task5_2>
+This command distributes the top-level ports along the periphery without enforcing ordering or side constraints. While not final pin placement, this helps verify port visibility, orientation, and connectivity at the floorplan stage.
+
+![Alt text](images/task5_2.png)
+
+---
+
+## Summary
+
+This task successfully establishes a clean SoC floorplan in ICC2 using the synthesized netlist from DC. The die size, core offset, and IO keep-out regions are explicitly controlled through TCL commands, ensuring reproducibility and correctness. The generated DEF and reports serve as a solid handoff point for subsequent placement, CTS, and routing stages.
