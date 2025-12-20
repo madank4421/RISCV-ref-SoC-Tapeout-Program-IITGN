@@ -347,3 +347,91 @@ After synthesis completes, the generated netlist and reports will be located in:
 ```
 synthesis/output/
 ```
+
+## Functional Simulation
+
+### Housekeeping SPI – Functional Simulation
+
+Functional simulation focuses on the `housekeeping_spi` block within the Management SoC. The corresponding testbench is located in the `dv/hkspi` directory.
+
+```
+cd dv/hkspi/
+```
+
+The Synopsys environment is initialized before invoking VCS.
+
+```
+csh
+source /home/madank/toolRC_iitgntapeout
+```
+
+The following command compiles the RTL and testbench:
+
+```
+vcs -full64 -sverilog -timescale=1ns/1ps -debug_access+all \
+    +incdir+../ +incdir+../../rtl +incdir+../../rtl/scl180_wrapper \
+    +incdir+/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/iopad/cio250/6M1L/verilog/tsl18cio250/zero \
+    +define+FUNCTIONAL +define+SIM \
+    hkspi_tb.v -o simv
+```
+
+Simulation execution and VCD dump:
+
+```
+./simv -no_save +define+DUMP_VCD=1 | tee sim_log.txt
+```
+
+![Alt text](images/task4_6.png)
+
+All housekeeping SPI test cases pass successfully. Registers 0 through 18 return expected values, confirming correct functional behavior.
+
+Waveforms are inspected using GTKWave:
+
+```
+gtkwave hkspi.vcd hkspi_tb.v
+```
+
+![Alt text](images/task4_7.png)
+
+![Alt text](images/task4_8.png)
+
+---
+
+## Gate-Level Simulation
+
+Gate-level simulation validates post-synthesis behavior using the synthesized netlist.
+
+```
+vcs -full64 -sverilog -timescale=1ns/1ps \
+    -debug_access+all \
+    +define+FUNCTIONAL+SIM+GL \
+    +notimingchecks \
+    hkspi_tb.v \
+    +incdir+../synthesis/output \
+    +incdir+/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/iopad/cio250/4M1L/verilog/tsl18cio250/zero \
+    +incdir+/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/stdcell/fs120/4M1IL/verilog/vcs_sim_model \
+    -o simv
+```
+
+![Alt text](images/task4_9.png)
+
+Simulation execution:
+
+```
+./simv -no_save +define+DUMP_VCD=1 | tee sim_log.txt
+```
+
+![Alt text](images/task4_12.png)
+
+With synthesized SRAM models, gate-level simulation results match functional simulation.
+
+Waveform verification:
+
+```
+gtkwave hkspi.vcd hkspi_tb.v
+```
+
+![Alt text](images/task4_13.png)
+
+![Alt text](images/task4_14.png)
+
