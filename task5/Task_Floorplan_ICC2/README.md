@@ -121,7 +121,7 @@ icc2_shell -f floorplan.tcl | tee floorplan.log
 
 After successful execution, the design library is created, the floorplan is initialized.
 
-![Alt text](images/task5_3.png)
+![Alt text](images/task5_1.png)
 
 ---
 
@@ -133,9 +133,11 @@ The ICC2 graphical interface can be launched using:
 start_gui
 ```
 
+![Alt text](images/task5_2.png)
+
 Within the GUI, the floorplan initialization section shows the defined die and core dimensions. This confirms that the floorplan geometry matches the intended specification.
 
-![Alt text](images/task5_1.png)
+![Alt text](images/task5_3.png)
 
 The die area is defined as 3588 × 5188 microns, and the core area is offset uniformly by 200 microns on all sides, ensuring sufficient spacing between core logic and IO pads.
 
@@ -151,7 +153,7 @@ place_pins -self
 
 This command distributes the top-level ports along the periphery without enforcing ordering or side constraints. While not final pin placement, this helps verify port visibility, orientation, and connectivity at the floorplan stage.
 
-![Alt text](images/task5_2.png)
+![Alt text](images/task5_4.png)
 
 ---
 
