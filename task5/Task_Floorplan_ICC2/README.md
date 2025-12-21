@@ -18,7 +18,7 @@ The following tools and libraries are required to reproduce this flow:
 
 ## Floorplan Overview
 
-The floorplan is created using a TCL-based batch flow in ICC2. The synthesized netlist from DC is used as the input. A new ICC2 design library is created with an SCL-180 reference NDM. The die area and core area are explicitly defined, and hard placement blockages are added around the periphery to reserve space for IO pads.
+The floorplan is created using a TCL-based batch flow in ICC2. The synthesized netlist from DC is used as the input. A new ICC2 design library is created. The die area and core area are explicitly defined, and hard placement blockages are added around the periphery to reserve space for IO pads.
 
 The output of this task includes:
 
