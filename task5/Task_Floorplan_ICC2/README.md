@@ -157,6 +157,15 @@ This command distributes the top-level ports along the periphery without enforci
 
 ---
 
+## Note
+
+Do the following changes in pad_placement_constraint.tcl to place the IO pads properly:
+
+![Alt text](images/task5_5.png)
+
+![Alt text](images/task5_6.png)
+
+
 ## Summary
 
 This task successfully establishes a clean SoC floorplan in ICC2 using the synthesized netlist from DC. The die size, core offset, and IO keep-out regions are explicitly controlled through TCL commands, ensuring reproducibility and correctness. The generated DEF and reports serve as a solid handoff point for subsequent placement, CTS, and routing stages.
