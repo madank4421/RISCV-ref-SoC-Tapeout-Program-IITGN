@@ -318,5 +318,3 @@ Post-route timing was analyzed using maximum and minimum delay reports.
 ![Alt text](images/timing_max.png)
 
 ![Alt text](images/timing_min.png)
-
-The timing reports confirm that the backend flow is correctly set up and capable of supporting a 100 MHz operating frequency, validating the placement, CTS, and routing stages.
