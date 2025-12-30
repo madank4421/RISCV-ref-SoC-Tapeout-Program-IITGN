@@ -18,14 +18,28 @@ PrimeTime (Post-Route STA @ 100MHz)
 
 Previous Progress:
 
-floorplan:
-<fp.png>
-
-
 
 change the constraints file such that the frequency becomes 100 MHz .
 
 <sdc>
+
+floorplan:
+<fp.png>
+
+
+Current proghress:
+
+
+Power generation
+
+The power generatiion is done using the folllowing script:
+
+```
+code will upload later
+```
+
+Now the power generation is done successfully.
+
 
 Running Placement:
 
