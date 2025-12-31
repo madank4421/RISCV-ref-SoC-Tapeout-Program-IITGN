@@ -163,7 +163,7 @@ The synthesis flow generates a timing-aware netlist for `vsdcaravel` using SCL-1
 
 ### Example Synthesis Script (POR-Free, dc_shell)
 
-```
+```tcl
 read_db "/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/iopad/cio250/4M1L/liberty/tsl18cio250_min.db"
 
 read_db "/home/Synopsys/pdk/SCL_PDK_3/SCLPDK_V3.0_KIT/scl180/stdcell/fs120/4M1IL/liberty/lib_flow_ff/tsl18fs120_scl_ff.db"
