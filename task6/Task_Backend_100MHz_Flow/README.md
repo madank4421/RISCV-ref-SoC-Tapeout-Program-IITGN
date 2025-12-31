@@ -308,13 +308,5 @@ Placement and routing were executed successfully using the above script.
 
 The zoomed-in routing view shows well-distributed signal routing and a clearly visible power mesh, indicating good physical utilization and routing quality.
 
-## Timing Analysis Results
-
-Post-route timing was analyzed using maximum and minimum delay reports.
-
-* Maximum delay analysis verifies setup timing at the 100 MHz target
-* Minimum delay analysis checks for potential hold violations
-
-![Alt text](images/timing_max.png)
-
-![Alt text](images/timing_min.png)
+>[!IMPORTANT]
+> There are multiple DRC errors in the output. Debugging is currently going on. Results will be updated as soon as the issue is solved
